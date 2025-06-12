@@ -1,65 +1,74 @@
-# MetaDefender - Sanitizador de Metadados
+# MetaDefender
+<img src="https://github.com/user-attachments/assets/7f9023f9-9b58-4334-8c4a-9b9d23f4607d" width="600" />
 
-MetaDefender é uma aplicação web desenvolvida em React e TypeScript que permite analisar e
-remover metadados de arquivos de imagem (JPEG/PNG) e documentos PDF diretamente
-no navegador. Todo o processamento é realizado localmente, garantindo que nenhum
-conteúdo seja enviado para servidores externos.
+## 📖 Sobre
+O MetaDefender é uma aplicação web que permite analisar e remover metadados de arquivos de imagem (JPEG/PNG) e documentos PDF diretamente no navegador. Todo o processamento é realizado localmente, garantindo que nenhum conteúdo seja enviado para servidores externos, protegendo completamente a privacidade do usuário.
 
-## Tecnologias Utilizadas
+Aplicação em produção: https://data-defender.netlify.app
 
-- **React** 19
-- **TypeScript**
-- **Vite** para o empacotamento e servidor de desenvolvimento
-- **Tailwind CSS** para estilização
-- **ExifReader** para leitura de metadados de imagens
-- **pdf-lib** para manipulação básica de PDFs
-- **lucide-react** para os ícones da interface
+## 💻 Tecnologias utilizadas
+- React.js 19
+- TypeScript
+- Vite
+- Tailwind CSS 4
+- ExifReader
+- pdf-lib
+- Lucide React
 
-## Como Funciona
+## ⚒️ Features
+- Análise completa de metadados em imagens (JPEG/PNG) e PDFs
+- Detecção automática de metadados sensíveis (GPS, dados pessoais, informações do dispositivo)
+- Sanitização segura removendo metadados sem afetar a qualidade visual
+- Processamento 100% local no navegador (sem uploads para servidores)
+- Geração de hash SHA-256 para verificação de integridade
+- Certificado digital de sanitização para comprovação do processo
+- Interface intuitiva com visualização clara dos metadados encontrados
+- Download do arquivo limpo e do certificado de sanitização
+- Suporte completo offline após o primeiro carregamento
 
-1. O usuário faz o upload de uma imagem ou PDF.
-2. Os metadados são extraídos no lado do cliente (imagem via `ExifReader` e PDF
-   via `pdf-lib`).
-3. Metadados considerados sensíveis (como informações de GPS ou autor) são
-   destacados na interface.
-4. Ao acionar **Sanitizar**, é gerada uma cópia do arquivo sem metadados:
-   - Imagens são redesenhadas em um canvas, eliminando informações embutidas.
-   - PDFs recebem uma nova versão do arquivo. A remoção de todos os metadados
-     pode variar conforme a estrutura do documento.
-5. É exibido um resumo com hashes SHA-256, quantidade de metadados removidos e um
-   certificado de sanitização que pode ser baixado junto ao arquivo limpo.
-
-## Execução do Projeto
-
-```bash
-npm install       # instala as dependências
-npm run dev       # inicia o servidor de desenvolvimento
+## ⚙️ Executando o projeto
+Primeiramente, deve-se instalar todas as dependências:
 ```
-
-Após executar `npm run dev`, acesse `http://localhost:5173` no navegador. Para
-gerar uma versão de produção utilize:
-
-```bash
+npm install
+```
+Rodando o projeto:
+```
+npm run dev
+```
+Realizando build:
+```
 npm run build
-npm run preview   # visualiza o build gerado
+```
+Visualizando o build:
+```
+npm run preview
+```
+Verificando o código:
+```
+npm run lint
 ```
 
-## Estrutura do Código
+## 🔒 Privacidade e Segurança
+- **Processamento Local**: Todos os arquivos são processados diretamente no seu navegador
+- **Sem Upload**: Nenhum arquivo é enviado para servidores externos
+- **Código Aberto**: Transparência total no processamento dos dados
+- **Certificação**: Cada arquivo processado recebe um certificado de autenticidade
 
-- `src/App.tsx` – componente principal e fluxo de upload/sanitização.
-- `src/utils/metadataExtractor.ts` – funções de extração de metadados.
-- `src/utils/fileSanitizer.ts` – cria as cópias sanitizadas dos arquivos.
-- `src/utils/fileHelpers.ts` – utilitários como hashing e downloads.
-- `src/types` – definições TypeScript utilizadas no app.
-- `public/` – arquivos estáticos (imagens e ícones).
+## 📝 Como Usar
+1. **Upload**: Selecione uma imagem (JPEG/PNG) ou PDF
+2. **Análise**: Visualize os metadados encontrados (sensíveis destacados em vermelho)
+3. **Sanitização**: Clique em "Sanitizar Arquivo" para remover metadados sensíveis
+4. **Download**: Baixe o arquivo limpo e o certificado de sanitização
 
-## Privacidade
+## 🛡️ Metadados Detectados
+### Imagens (JPEG/PNG)
+- Coordenadas GPS (latitude, longitude, altitude)
+- Informações da câmera (fabricante, modelo, configurações)
+- Dados temporais (data/hora de criação)
+- Informações técnicas (EXIF completo)
 
-O MetaDefender não realiza upload de arquivos para nenhum servidor. Todas as
-operações ocorrem apenas no seu navegador, mantendo seus documentos em
-segurança e privacidade total.
-
-## Contribuição
-
-Pull requests são bem-vindos! Antes de enviar, utilize `npm run lint` para
-verificar o estilo do código.
+### PDFs
+- Dados do autor e criador
+- Software utilizado na criação
+- Datas de criação e modificação
+- Metadados de título, assunto e palavras-chave
