@@ -1,5 +1,5 @@
 # MetaDefender
-<img src="https://github.com/user-attachments/assets/7f9023f9-9b58-4334-8c4a-9b9d23f4607d" width="600" />
+<img src="https://github.com/user-attachments/assets/ac11cc35-95dc-4fb3-bf1e-6c605523114a" width="600" />
 
 ## 📖 Sobre
 O MetaDefender é uma aplicação web que permite analisar e remover metadados de arquivos de imagem (JPEG/PNG) e documentos PDF diretamente no navegador. Todo o processamento é realizado localmente, garantindo que nenhum conteúdo seja enviado para servidores externos, protegendo completamente a privacidade do usuário.
